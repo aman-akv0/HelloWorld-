@@ -322,6 +322,19 @@ textarea {
     
 }
 
+.CodeMirror {
+    position: relative;
+}
+
+.CodeMirror-scroll {
+    padding-left: 30px; /* Space for line numbers */
+}
+
+.CodeMirror-gutter {
+    width: 40px; /* Ensure gutter width is fixed */
+}
+
+
 textarea::-webkit-scrollbar {
     width: 8px;
 }
@@ -383,3 +396,4 @@ textarea::-webkit-scrollbar-thumb {
         font-size: 2rem;
     }
 }
+
