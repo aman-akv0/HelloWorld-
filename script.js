@@ -88,7 +88,14 @@ function runCode() {
     outputFrame.open();
     outputFrame.write(htmlCode + cssCode + jsCode);
     outputFrame.close();
+
+    // Trigger the animation
+    const outputPanel = document.querySelector('.output');
+    outputPanel.style.animation = 'none'; // Reset animation
+    outputPanel.offsetHeight; // Trigger reflow
+    outputPanel.style.animation = 'fadeIn 0.5s ease-in-out'; // Reapply animation
 }
+
 
 // Save and export code functions
 function saveCode() {
