@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Code Editor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/codemirror.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/addon/hint/show-hint.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Jersey+20+Charted&family=Oxanium:wght@200..800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Jersey+20+Charted&family=Oxanium:wght@200..800&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Monster Background (You can insert your image URL below) -->
+  <div id="monster-bg"></div>
+
+
+  <div class="header">
+    <h1 id="animated-text"></h1>
+    <div class="auth-buttons">
+      <!-- Navigation buttons for Login and Signup -->
+      <button id="loginBtn" onclick="window.location.href='login.html'">Login</button>
+      <button id="signupBtn" onclick="window.location.href='signup.html'">Signup</button>
+    </div>
+  </div>
+  
+  
+
+  <!-- Main Content Area -->
+  <div class="container">
+    <div class="intro-section">
+      <h2> <span style="color: white; font-family: 'Caveat', cursive;" >Welcome to HELLO WORLD! </span></h2>
+      <h4>
+        Where your code says <span style="color: white ;">"Hello" </span> , but your imagination says <span style="color: white;">"Whoa!" </span> <br>
+        
+        Are you ready to embark on a <span style="color: white;"> wild coding adventure? </span> Look no further than <span style="color: white;">HELLO WORLD </span>,<br> the ultimate code editor where dreams are written in <span style="color: white;">HTML </span>, styled in neon green <span style="color: white;">CSS </span>, and powered by <span style="color: white;">JavaScript </span> (and maybe a little too much coffee ☕).
+        
+        Whether you're a beginner still trying to remember the difference between console.log and alert(), or you're an experienced coder who only types in dark mode, this is the <span style="color: white;">place where code comes to life </span>... literally.<br> 
+      </h4>
+        <br>
+      
+        <button id="startCodingBtn" class="start-coding-button">Start Coding</button>
+      
+        <br>
+        <br>
+        <h2><span style="color: white; font-family: 'Caveat', cursive;">With HELLO WORLD, you can: </span></h2>
+          <h3 style="color: white;">
+            <li>Write your code like a pro (or a very enthusiastic amateur, we won’t judge).</li>
+            <li>Run it instantly to see your masterpiece come to life, even if your JavaScript throws an error every now and then — we’ve all been there.</li>
+            <li>Save and export your work, so you can show off your skills to your friends... and maybe even get a "Wow!" for your efforts.</li>
+          </h3>
+        <h4>
+        Oh, and did we mention the background that makes coding feel like you’re hacking into the Matrix? 🔥 Yeah, that's part of the charm.
+        
+        So, what are you waiting for? Say "Hello, World" to your next big coding project, because this site isn’t just for beginners — it’s for anyone who loves to create, code, and occasionally Google "how to fix my broken code."
+        </h4>
+      
+    </div>
+    
+    <!-- Tabs for HTML, CSS, JS -->
+    <div class="tabs" style="display: none;">
+      <button class="tab-button " onclick="openTab(event, 'html')">HTML</button>
+      <button class="tab-button" onclick="openTab(event, 'css')">CSS</button>
+      <button class="tab-button" onclick="openTab(event, 'js')">JavaScript</button>
+    </div>
+
+    <!-- Code Editor Areas -->
+    <div class="editors" style="display: none;">
+      <div id="html" class="tab-content active">
+        <textarea id="htmlCode"></textarea>
+      </div>
+      <div id="css" class="tab-content">
+        <textarea id="cssCode"></textarea>
+      </div>
+      <div id="js" class="tab-content">
+        <textarea id="jsCode"></textarea>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons" style="display: none;">
+      <button class="run-button" onclick="runCode()">Run</button>
+      <button class="save-button" onclick="saveCode()">Save Code</button>
+      <button class="export-button" onclick="exportCode()">Export Code</button>
+    </div>
+  </div>
+
+  <!-- Live Output Area -->
+  <div class="output-container" style="display: none;">
+    <iframe id="output" class="output"></iframe>
+  </div>
+
+  <!-- Include CodeMirror and JS Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/mode/css/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/addon/hint/show-hint.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/addon/hint/html-hint.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/addon/hint/css-hint.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.7/addon/hint/javascript-hint.js"></script>
+  
+  <script src="script.js"></script>
+</body>
+</html>

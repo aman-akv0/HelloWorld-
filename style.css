@@ -1,0 +1,385 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Font-Family Global */
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #0a0a0a;
+    color: #33ff33;
+    overflow: auto;
+    height: 100%;
+    line-height: 1.6;
+    
+}
+
+/* Output Container */
+.output-container {
+    width: 80%;
+    max-width: 1200px;
+    height: 400px;
+    margin: 20px auto;
+    border: 2px solid #333;
+    background-color: #ffffff; /* White background */
+    border-radius: 12px;
+    z-index: 2; /* Ensure it's above the background */
+}
+
+.output {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #ffffff; /* White background for iframe */
+}
+
+/* Monster Background */
+#monster-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('https://img.freepik.com/free-vector/stream-binary-code-design-vector_53876-161363.jpg') center center / cover no-repeat;
+    opacity: 0.3;
+    animation: move-monster 10s infinite ease-in-out;
+    z-index: -1; /* Ensure background stays behind everything else */
+}
+
+@keyframes move-monster {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 2;
+    text-align: center;
+    padding-top: 30px;
+    padding-left: 55vh;
+    flex-wrap: wrap;
+}
+.header h1 span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly below */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.header h1 span.animate {
+    opacity: 1;
+    transform: translateY(0); /* Move to original position */
+}
+/* Header Text Styling */
+.intro-section h4,
+.intro-section h3 {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 450;
+    font-style: normal;
+    /* text-align: left; */
+}
+
+.header h1 {
+    font-family: "Oxanium";
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+h1 {
+    font-size: 4rem;
+    color: #ffffff;
+    text-shadow: 0 0 10px #000000, 0 0 20px #2b00ff, 0 0 30px #00ff00;
+}
+
+p {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-top: 10px;
+}
+
+/* Authentication Container */
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #1b1b1b;
+    background: url('https://img.freepik.com/free-vector/stream-binary-code-design-vector_53876-161363.jpg') center center / cover no-repeat;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+    color: #33ff33;
+    text-align: center;
+}
+
+.auth-container h1 {
+    font-family: "Oxanium";
+    font-size: 2.5rem;
+    font-weight: lighter;
+    margin-bottom: 20px;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #33ff33;
+    background-color: #0a0a0a;
+    color: #33ff33;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.auth-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #33ff33;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.auth-container button:hover {
+    background-color: #00ff00;
+    transform: scale(1.1);
+
+}
+
+.auth-container p {
+    margin-top: 10px;
+    color: #fff;
+}
+
+.auth-container a {
+    color: #33ff33;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.auth-container a :hover {
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Buttons */
+.auth-buttons {
+    margin-top: 20px;
+}
+
+.auth-buttons button {
+    padding: 15px 25px;
+    margin: 10px;
+    cursor: pointer;
+    background-color: #000000;
+    border: 2px solid #6df46d;
+    border-radius: 5px;
+    color: #33ff33;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.auth-buttons button:hover {
+    background-color: #33ff33;
+    color: #0a0a0a;
+    transform: scale(1.2); 
+}
+
+/* Container */
+.container {
+    margin-top: 20px;
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    z-index: 2;
+    position: relative;
+    overflow: auto;
+}
+
+/* Intro Section */
+.intro-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.start-coding-button {
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    background-color: #33ff33;
+    color: black;
+    border: 2px solid #33ff33;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.start-coding-button:hover {
+    background-color: #000000;
+    color: #ffffff;
+    transform: scale(1.1);
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #33ff33;
+}
+
+/* Tab Button - Default State */
+.tab-button {
+    flex: 1;
+    padding: 15px;
+    cursor: pointer;
+    background-color: #0a0a0a;  /* Black background by default */
+    color: #33ff33;  /* Green text by default */
+    border: 2px solid #33ff33;  /* Green border always */
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;  /* Smooth transition for background, color, scaling, and shadow */
+    text-align: center;
+    min-width: 80px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+
+/* Hover Effect */
+.tab-button:hover {
+    background-color: #33ff33;  /* Green background on hover */
+    color: #0a0a0a;  /* Black text on hover */
+    transform: scale(1.2);  /* Slightly pop out (scale up) the button */
+    /* box-shadow: 0 4px 20px rgba(0, 255, 64, 0.943);  Add glowing green shadow effect */
+}
+
+/* Active Tab Button */
+.tab-button.active {
+    background-color: #33ff33;  /* Green background when active */
+    color: #0a0a0a;  /* Black text when active */
+    transform: scale(1.2);  /* Slightly scale up the button */
+    box-shadow: 0 4px 20px rgba(0, 255, 0, 0.6);  /* Add glowing green shadow effect when active */
+
+}
+
+/* Tab Animations */
+.tab-button {
+    
+    animation: tabButtonEffect 0.5s ease-in-out forwards;
+}
+
+@keyframes tabButtonEffect {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Editors Section */
+.editors {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 20px;
+    overflow: auto;
+}
+
+.tab-content {
+    
+    width: 32%;
+    height: 400px;
+    background-color: #1b1b1b;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    
+}
+
+
+/* Textarea Styling */
+textarea {
+    width: 100%;
+    height: 100%;
+    border: none;
+    resize: none;
+    background-color: #0a0a0a;
+    color: #33ff33;
+    padding: 15px;
+    font-size: 16px;
+    font-family: 'Courier New', monospace;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+    overflow-y: scroll;
+    
+}
+
+textarea::-webkit-scrollbar {
+    width: 8px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background: #33ff33;
+    border-radius: 4px;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.run-button, .save-button, .export-button {
+    padding: 10px 25px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: #000000;
+    color: rgb(0, 255, 30);
+    border: 2px solid #00ff00;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.run-button:hover, .save-button:hover, .export-button:hover {
+    background-color: #33ff33;
+    color: black;
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .editors {
+        flex-direction: column;
+    }
+
+    .tab-content {
+        height: 200px;
+    }
+
+    .tabs {
+        flex-direction: column;
+        padding-bottom: 0;
+    }
+
+    .tab-button {
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+}
