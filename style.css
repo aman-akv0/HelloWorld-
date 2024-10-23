@@ -27,13 +27,27 @@ body {
     border-radius: 12px;
     z-index: 2; /* Ensure it's above the background */
 }
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px); /* Start slightly lower */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* End at normal position */
+    }
+}
+
 
 .output {
     width: 100%;
     height: 100%;
     border: none;
+    border-radius: 12px;
     background-color: #ffffff; /* White background for iframe */
+    animation: fadeIn 0.5s ease-in-out; /* Apply the fade-in animation */
 }
+
 
 /* Monster Background */
 #monster-bg {
@@ -295,14 +309,12 @@ p {
 }
 
 .tab-content {
-    
     width: 32%;
-    height: 400px;
-    background-color: #1b1b1b;
-    border-radius: 12px;
+    height: 310px;
+    background-color: white;
+    border-radius: 10px;
     overflow: hidden;
     position: relative;
-    
 }
 
 
@@ -335,6 +347,7 @@ textarea {
 }
 
 
+
 textarea::-webkit-scrollbar {
     width: 8px;
 }
@@ -349,6 +362,7 @@ textarea::-webkit-scrollbar-thumb {
     display: flex;
     justify-content: center;
     margin: 10px 0;
+    margin-top: 30px;
 }
 
 .run-button, .save-button, .export-button {
@@ -397,3 +411,57 @@ textarea::-webkit-scrollbar-thumb {
     }
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Adjust font size for mobile */
+    }
+
+    h1 {
+        font-size: 2rem; /* Header font size */
+    }
+
+    .intro-section h4, .intro-section h3 {
+        font-size: 1rem; /* Smaller font for intro text */
+    }
+
+    .output-container {
+        height: 250px; /* Reduce height for mobile */
+    }
+
+    .editors {
+        flex-direction: column; /* Stack editors vertically */
+    }
+
+    .tab-content {
+        height: 200px; /* Adjust height for tabs */
+    }
+
+    .tabs {
+        flex-direction: column; /* Stack tabs vertically */
+    }
+
+    .tab-button {
+        padding: 10px; /* Smaller padding */
+        font-size: 1rem; /* Adjust font size */
+    }
+
+    .action-buttons {
+        flex-direction: column; /* Stack action buttons */
+    }
+
+    .run-button, .save-button, .export-button {
+        width: 100%; /* Full-width buttons */
+        margin: 5px 0; /* Vertical spacing */
+    }
+
+    .start-coding-button {
+        width: 100%; /* Full-width button */
+        font-size: 1.2rem; /* Adjust font size */
+    }
+
+    .header {
+        padding-left: 5vw; /* Adjust padding for mobile */
+        padding-right: 5vw; /* Adjust padding for mobile */
+    }
+}
